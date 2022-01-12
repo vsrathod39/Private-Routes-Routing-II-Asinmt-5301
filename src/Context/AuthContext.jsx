@@ -2,7 +2,7 @@ import React from "react";
 export const AuthContext = React.createContext();
 
 export function AuthContextProvider({ children }) {
-  const [isAuth, setIsAuth] = React.useState(true);
+  const [isAuth, setIsAuth] = React.useState(false);
 
   const handleSignin = ({ user, password }) => {
     if (user === "admin" && password === "admin") {

@@ -2,7 +2,7 @@ import React from "react";
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { AuthContext } from "../../Context/AuthContext";
+import { AuthContext } from "../../../Context/AuthContext";
 
 export default function Navbar() {
   const { isAuth, handleSignout } = React.useContext(AuthContext);
@@ -10,11 +10,6 @@ export default function Navbar() {
     {
       to: "/",
       title: "Home",
-      id: nanoid(),
-    },
-    {
-      to: "/dashboard",
-      title: "Dashbord",
       id: nanoid(),
     },
   ];
@@ -33,7 +28,10 @@ export default function Navbar() {
       {!isAuth ? (
         <Link to="/login">Login</Link>
       ) : (
-        <button onClick={handleLogout}>Logout</button>
+        <>
+          <Link to="/dashboard">Dashboard</Link>
+          <button onClick={handleLogout}>Logout</button>
+        </>
       )}
     </div>
   );
